@@ -33,8 +33,15 @@ jobs:
       - name: "Install"
         run: "npm ci"
 
-      - name: "Lint"
-        run: "npm run lint"
+      - name: "ESLint (reviewdog comments)"
+        uses: "reviewdog/action-eslint@v1"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          level: "error"
+          fail_on_error: "true"
+          filter_mode: "diff_context"
+          eslint_flags: "src --ext .ts"
 
   tests:
     name: "Tests"
