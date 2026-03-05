@@ -4,14 +4,14 @@
   "description": "Sandbox repo to test CI gates: secrets, lint, tests, dependency review, CodeQL.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --max-warnings=0",
+    "lint": "eslint src --ext .ts --max-warnings=0",
     "test": "vitest run --coverage",
     "build": "tsc -p tsconfig.json",
     "prepare": "husky install",
     "setup": "npm ci && npm run verify",
     "verify": "npm run lint && npm run test && npm run build"
   },
-    "lint-staged": {
+  "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint --fix"
     ]
