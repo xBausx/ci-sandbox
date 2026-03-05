@@ -10,9 +10,12 @@ permissions:
   pull-requests: "write"
 
 jobs:
-  ci:
-    name: "Lint + Tests"
+  lint:
+    name: "Lint"
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: "read"
+      pull-requests: "write"
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v4"
@@ -28,6 +31,24 @@ jobs:
 
       - name: "Lint"
         run: "npm run lint"
+
+  tests:
+    name: "Tests"
+    runs-on: "ubuntu-latest"
+    permissions:
+      contents: "read"
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+
+      - name: "Setup Node"
+        uses: "actions/setup-node@v4"
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: "Install"
+        run: "npm ci"
 
       - name: "Unit tests (coverage)"
         run: "npm test"
