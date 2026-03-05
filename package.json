@@ -1,0 +1,31 @@
+{
+  "name": "ci-sandbox",
+  "version": "1.0.0",
+  "description": "Sandbox repo to test CI gates: secrets, lint, tests, dependency review, CodeQL.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run --coverage",
+    "build": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xBausx/ci-sandbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xBausx/ci-sandbox/issues"
+  },
+  "homepage": "https://github.com/xBausx/ci-sandbox#readme",
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^8.57.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
