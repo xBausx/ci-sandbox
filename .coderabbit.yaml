@@ -1,8 +1,9 @@
-# Generate title if PR title contains this placeholder:
-auto_title_placeholder: "@coderabbitai title"
+reviews:
+  # Generate title if PR title contains this placeholder:
+  auto_title_placeholder: "@coderabbitai title"
 
-# Replace this placeholder in the PR description:
-high_level_summary_placeholder: "@coderabbitai summary"
+  # Replace this placeholder in the PR description:
+  high_level_summary_placeholder: "@coderabbitai summary"
 
-# (Optional) keep summary on by default
-high_level_summary: true
+  # (Optional) keep summary on by default
+  high_level_summary: true
