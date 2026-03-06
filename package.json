@@ -4,9 +4,18 @@
   "description": "Sandbox repo to test CI gates: secrets, lint, tests, dependency review, CodeQL.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --max-warnings=0",
+    "lint": "eslint src --ext .ts --max-warnings=0",
     "test": "vitest run --coverage",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "husky install",
+    "setup": "npm ci && npm run verify",
+    "verify:quick": "npm run lint && npm run build",
+    "verify": "npm run verify:quick && npm run test"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,6 +34,8 @@
     "@typescript-eslint/parser": "^8.56.1",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^8.57.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^16.3.2",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   }
