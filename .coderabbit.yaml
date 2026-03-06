@@ -7,3 +7,11 @@ reviews:
 
   # (Optional) keep summary on by default
   high_level_summary: true
+
+  # makes CodeRabbit “request changes” and then auto-approve once its threads are resolved.
+  request_changes_workflow: true
+
+  # If you want it to run automatically on PR open/update
+  auto_review:
+    enabled: true
+    drafts: false
