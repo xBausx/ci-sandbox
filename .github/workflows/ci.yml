@@ -39,7 +39,7 @@ jobs:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           reporter: "github-pr-review"
           level: "error"
-          fail_on_error: "true"
+          fail_level: "true"
           filter_mode: "diff_context"
           eslint_flags: "src --ext .ts"
 
@@ -55,7 +55,7 @@ jobs:
       - name: "Setup Node"
         uses: "actions/setup-node@v4"
         with:
-          node-version: "20"
+          node-version: "20.19.0"
           cache: "npm"
 
       - name: "Install"

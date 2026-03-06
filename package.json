@@ -9,7 +9,8 @@
     "build": "tsc -p tsconfig.build.json",
     "prepare": "husky install",
     "setup": "npm ci && npm run verify",
-    "verify": "npm run lint && npm run test && npm run build"
+    "verify:quick": "npm run lint && npm run build",
+    "verify": "npm run verify:quick && npm run test"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
