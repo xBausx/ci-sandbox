@@ -1,0 +1,10 @@
+[pr_description]
+# PR-Agent's /describe generates PR description content.
+# Keep it short so it doesn't spam.
+enable_help_text = false
+
+[pr_reviewer]
+extra_instructions = """
+Be concise. Focus on correctness, maintainability, and small improvements.
+Don't nitpick formatting if lint already covers it.
+"""
