@@ -10,6 +10,11 @@ function getBranchTicket() {
   return m ? m[1].toLowerCase() : "";
 }
 
+function getGitDir() {
+  const r = spawnSync("git", ["rev-parse", "--git-dir"], { encoding: "utf8" });
+  return (r.stdout || "").trim() || ".git";
+}
+
 const ticketArg = (process.argv[2] || "").trim().toLowerCase();
 const ticket = ticketArg || getBranchTicket();
 
@@ -26,6 +31,12 @@ const czPath = path.join(rootDir, "node_modules", "commitizen", "bin", "git-cz.j
 if (!fs.existsSync(czPath)) {
   console.error(`Local commitizen CLI not found: ${czPath}`);
   process.exit(1);
+}
+
+if (ticket) {
+  const gitDir = path.resolve(rootDir, getGitDir());
+  const ticketFile = path.join(gitDir, "COMMIT_TICKET");
+  fs.writeFileSync(ticketFile, `${ticket}\n`, "utf8");
 }
 
 const res = spawnSync(process.execPath, [czPath], {
