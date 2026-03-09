@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,7 +21,12 @@ if (ticket) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
-const czPath = path.join(rootDir, "node_modules", "commitizen", "dist", "cli", "git-cz.js");
+const czPath = path.join(rootDir, "node_modules", "commitizen", "bin", "git-cz.js");
+
+if (!fs.existsSync(czPath)) {
+  console.error(`Local commitizen CLI not found: ${czPath}`);
+  process.exit(1);
+}
 
 const res = spawnSync(process.execPath, [czPath], {
   stdio: "inherit",

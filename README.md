@@ -11,3 +11,5 @@ ticket-test
 commitizen fallback test
 
 commit ai retest
+
+commitizen retry
