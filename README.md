@@ -8,3 +8,6 @@ npm run setup
 npm run verify
 
 ticket-test
+commitizen fallback test
+
+commit ai retest

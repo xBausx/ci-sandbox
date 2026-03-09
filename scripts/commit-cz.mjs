@@ -1,5 +1,4 @@
 import { spawnSync } from "node:child_process";
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -21,16 +20,12 @@ if (ticket) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
-const cliPath = path.join(rootDir, "node_modules", "aicommits", "dist", "cli.mjs");
+const czPath = path.join(rootDir, "node_modules", "commitizen", "dist", "cli", "git-cz.js");
 
-if (!fs.existsSync(cliPath)) {
-  console.error(`Local aicommits CLI not found: ${cliPath}`);
-  process.exit(1);
-}
-
-const res = spawnSync(process.execPath, [cliPath, "-t", "conventional"], {
+const res = spawnSync(process.execPath, [czPath], {
   stdio: "inherit",
-  env
+  env,
+  cwd: rootDir
 });
 
 if (res.error) {

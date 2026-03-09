@@ -13,7 +13,13 @@
     "verify:quick": "npm run lint && npm run build",
     "verify": "npm run verify:quick && npm run test",
     "commit:ai:setup": "aicommits setup",
-    "commit:ai": "node scripts/commit-ai.mjs"
+    "commit:ai": "node scripts/commit-ai.mjs",
+    "commit:cz": "node scripts/commit-cz.mjs"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -37,6 +43,8 @@
     "@typescript-eslint/parser": "^8.56.1",
     "@vitest/coverage-v8": "^4.0.18",
     "aicommits": "^1.11.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "lint-staged": "^16.3.2",
