@@ -25,15 +25,16 @@ jobs:
           cache: "npm"
 
       - name: "Install"
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: "Test (coverage)"
         run: npm test
 
       - name: "SonarCloud Scan"
-        uses: SonarSource/sonarcloud-github-action@v3
+        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
         with:
           args: >
             -Dsonar.organization=${{ vars.SONAR_ORGANIZATION }}
