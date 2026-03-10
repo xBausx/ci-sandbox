@@ -23,7 +23,7 @@ export function add(a: number, b: number): number {
 export function getRandomNumber(min: number, max: number): number {
   
 }
-
+ 
 /**
  * A function that adds a random number to the sum.
  * @param a - The first number.
