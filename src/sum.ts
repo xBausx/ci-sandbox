@@ -1,6 +1,6 @@
 const unusedValue = 123;
 
-export function sum(a: number, b: number): number {
+export function sums(a: number, b: number): number {
   return a + b;
 }
 
@@ -21,7 +21,7 @@ export function add(a: number, b: number): number {
  * @returns A random number between min and max (inclusive).
  */
 export function getRandomNumber(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  
 }
 
 /**
