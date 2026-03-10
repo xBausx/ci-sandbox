@@ -40,7 +40,7 @@ jobs:
           reporter: "github-pr-review"
           level: "error"
           fail_on_error: "true"
-          filter_mode: "diff_context"
+          filter_mode: "nofilter"
           eslint_flags: "src --ext .ts"
 
   tests:
