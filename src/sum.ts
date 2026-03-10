@@ -1,3 +1,7 @@
+export function sum(a: number, b: number): number {
+  return a + b;
+}
+
 /**
  * Adds two numbers together.
  * @param a - The first number.
